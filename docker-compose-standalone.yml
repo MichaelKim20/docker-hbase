@@ -66,6 +66,18 @@ services:
     env_file:
       - ./hbase-standalone.env
 
+  sample:
+    image: golang:1.18
+    container_name: sample
+    hostname: sample
+    restart: always
+    volumes:
+      - ../sample:/sample
+    working_dir: /sample
+    command: /bin/sh
+    stdin_open: true
+    tty: true
+
 volumes:
   hadoop_namenode:
   hadoop_datanode:
